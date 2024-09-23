@@ -25,9 +25,14 @@ app.post('/webhook', async (req, res) => {
   try {
     const notification = req.body;
 
+    console.log('Notificación recibida:', notification);
+    console.log('Recurso:', notification.resource);
+    
     // Intentar realizar GET al recurso proporcionado en la notificación
     const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
     const accessToken = process.env.ACCESS_TOKEN; // Token de acceso a MercadoLibre
+
+    
 
     let apiResponse = {};
 
