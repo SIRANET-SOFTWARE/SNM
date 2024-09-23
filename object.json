@@ -1,0 +1,890 @@
+{
+    "id": "MLA29586995",
+    "app": "pdp",
+    "layout": "pdp",
+    "components": {
+        "bookmark": {
+            "id": "bookmark",
+            "type": "bookmark",
+            "state": "VISIBLE",
+            "item_id": "MLA1882639592",
+            "is_bookmarked": false,
+            "add": {
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Agregar a favoritos"
+                },
+                "icon": {
+                    "id": "BOOKMARK"
+                },
+                "track": {
+                    "melidata_event": {
+                        "path": "/bookmarks/action/post",
+                        "event_data": {
+                            "item_id": "MLA1882639592",
+                            "catalog_product_id": "MLA29586995",
+                            "context": "/pdp"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Quitar de favoritos"
+                },
+                "icon": {
+                    "id": "BOOKMARK"
+                },
+                "track": {
+                    "melidata_event": {
+                        "path": "/bookmarks/action/delete",
+                        "event_data": {
+                            "item_id": "MLA1882639592",
+                            "catalog_product_id": "MLA29586995",
+                            "context": "/pdp"
+                        }
+                    }
+                }
+            },
+            "label": "Favorito",
+            "isFetching": false
+        },
+        "share": {
+            "id": "share",
+            "type": "share",
+            "state": "VISIBLE",
+            "share_title": {
+                "text": "Comparte este producto",
+                "color": "BLACK"
+            },
+            "permalink": "https://www.mercadolibre.com.ar/repelente-escudo-mosquitos-dengue-aroma-suave-no-mancha/p/MLA29586995",
+            "title": "Repelente Escudo Mosquitos Dengue Aroma Suave No Mancha",
+            "picture": {
+                "id": "665673-MLU74840097464_032024",
+                "width": 308,
+                "height": 655
+            },
+            "action": {
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Compartir"
+                },
+                "icon": {
+                    "id": "SHARE"
+                }
+            },
+            "share_actions": [
+                {
+                    "target": "mailto:?subject=Repelente%20Escudo%20Mosquitos%20Dengue%20Aroma%20Suave%20No%20Mancha&body=https%3A%2F%2Fwww.mercadolibre.com.ar%2Frepelente-escudo-mosquitos-dengue-aroma-suave-no-mancha%2Fp%2FMLA29586995",
+                    "timeout": 0,
+                    "duration": 0,
+                    "label": {
+                        "text": "E-mail"
+                    },
+                    "icon": {
+                        "id": "MAIL"
+                    },
+                    "track": {
+                        "analytics_event": {
+                            "section": "/PDP/",
+                            "action": "SHARE_MAIL",
+                            "category": "PDP"
+                        }
+                    }
+                },
+                {
+                    "target": "http://x.com/share?text=%C2%A1Me%20gusta%21%20Repelente%20Escudo%20Mosquitos%20Dengue%20Aroma%20Suave%20No%20Mancha&url=https%3A%2F%2Fwww.mercadolibre.com.ar%2Frepelente-escudo-mosquitos-dengue-aroma-suave-no-mancha%2Fp%2FMLA29586995",
+                    "timeout": 0,
+                    "duration": 0,
+                    "label": {
+                        "text": "X"
+                    },
+                    "icon": {
+                        "id": "TWITTER"
+                    },
+                    "track": {
+                        "analytics_event": {
+                            "section": "/PDP/",
+                            "action": "SHARE_X",
+                            "category": "PDP"
+                        }
+                    }
+                },
+                {
+                    "target": "http://www.FACEBOOK.com/sharer.php?u=https%3A%2F%2Fwww.mercadolibre.com.ar%2Frepelente-escudo-mosquitos-dengue-aroma-suave-no-mancha%2Fp%2FMLA29586995",
+                    "timeout": 0,
+                    "duration": 0,
+                    "label": {
+                        "text": "Facebook"
+                    },
+                    "icon": {
+                        "id": "FACEBOOK"
+                    },
+                    "track": {
+                        "analytics_event": {
+                            "section": "/PDP/",
+                            "action": "SHARE_FACEBOOK",
+                            "category": "PDP"
+                        }
+                    }
+                }
+            ]
+        },
+        "picture_config": {
+            "template": "https://http2.mlstatic.com/D_NQ_NP_{id}-O.webp",
+            "template_thumbnail": "https://http2.mlstatic.com/D_Q_NP_{id}-R.webp",
+            "template_zoom": "https://http2.mlstatic.com/D_NQ_NP_{id}-F.webp",
+            "template_2x": "https://http2.mlstatic.com/D_NQ_NP_2X_{id}-F.webp",
+            "template_thumbnail_2x": "https://http2.mlstatic.com/D_Q_NP_2X_{id}-R.webp"
+        },
+        "wishlist_save_button": {
+            "id": "wishlist_save_button",
+            "type": "save_button",
+            "state": "HIDDEN"
+        },
+        "installations": {
+            "id": "installations",
+            "type": "installations",
+            "state": "HIDDEN"
+        },
+        "price": {
+            "id": "price",
+            "type": "price",
+            "state": "VISIBLE",
+            "price": {
+                "type": "price",
+                "value": 9000,
+                "currency_symbol": "$",
+                "currency_id": "ARS",
+                "billing": false
+            },
+            "subtitles": [
+                {
+                    "id": "pricing_price_subtitle",
+                    "text": "en 6 cuotas de {price_installments}",
+                    "color": "BLACK",
+                    "font_size": "MEDIUM",
+                    "font_family": "REGULAR",
+                    "specs": {
+                        "margin_bottom": 10
+                    },
+                    "values": {
+                        "price_installments": {
+                            "type": "price",
+                            "value": 2068.95,
+                            "currency_symbol": "$"
+                        },
+                        "en": {
+                            "text": "en",
+                            "color": "BLACK"
+                        }
+                    }
+                },
+                {
+                    "id": "price_per_unit_price_subtitle",
+                    "text": "El precio por kilo es {price}",
+                    "color": "GRAY",
+                    "font_size": "XSMALL",
+                    "font_family": "REGULAR",
+                    "has_andes_format": true,
+                    "values": {
+                        "price": {
+                            "type": "price",
+                            "value": 69230.77,
+                            "currency_symbol": "$",
+                            "currency_id": "ARS",
+                            "billing": false
+                        }
+                    }
+                }
+            ],
+            "price_tags": [],
+            "action": {
+                "target": "https://articulo.mercadolibre.com.ar/noindex/services/MLA1882639592/payments?new_version=true&modal=true&newIndex=true",
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Ver los medios de pago"
+                },
+                "modal_title": "Medios de pago para este producto",
+                "close_modal_label": "Cerrar",
+                "track": {
+                    "melidata_event": {
+                        "path": "/pdp/pricing_rebates/modal_payments_action",
+                        "event_data": {
+                            "item_id": "MLA1882639592",
+                            "is_cash_price": false,
+                            "price": 9000,
+                            "currency_id": "ARS",
+                            "installments_value_total": 12413.7,
+                            "installments_value_each": 2068.95,
+                            "installments_amount": 6,
+                            "is_free_installments": false
+                        }
+                    }
+                }
+            },
+            "has_currency_change": false,
+            "discounts_tags": []
+        },
+        "price_per_quantity_shortcuts": {
+            "id": "price_per_quantity_shortcuts",
+            "type": "price_per_quantity_shortcuts",
+            "state": "HIDDEN"
+        },
+        "no_stock_status": {
+            "id": "no_stock_status",
+            "type": "ui_message",
+            "state": "HIDDEN",
+            "closeable": false,
+            "bg_color": "WHITE"
+        },
+        "buy_box_offers": {
+            "id": "buy_box_offers",
+            "type": "buy_box_offers",
+            "state": "HIDDEN",
+            "expansion_animator": false
+        },
+        "payment_summary": {
+            "id": "payment_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "coupon_summary": {
+            "id": "coupon_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "cpg_summary": {
+            "id": "cpg_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "meliplus_label_summary": {
+            "id": "meliplus_label_summary",
+            "type": "highlights_information",
+            "state": "HIDDEN"
+        },
+        "meliplus_summary": {
+            "id": "meliplus_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "shipping_summary": {
+            "id": "shipping_summary",
+            "type": "generic_summary",
+            "state": "VISIBLE",
+            "title": {
+                "text": "{promise}",
+                "color": "BLACK",
+                "has_andes_format": true,
+                "values": {
+                    "promise": {
+                        "text": "Llega gratis mañana",
+                        "color": "GREEN",
+                        "font_family": "SEMIBOLD"
+                    }
+                }
+            },
+            "subtitles": [],
+            "action": {
+                "target": "https://www.mercadolibre.com.ar/gz/shipping-calculator?noIndex=true&item_id=MLA1882639592&new_version=true&modal=true&informative=true&page_context=vpp&location=true&quantity=5&can_go_cart_checkout=true&calculator_experiment=true&mode=embed&flow=true",
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Más formas de entrega",
+                    "color": "BLUE"
+                },
+                "close_modal_label": "Cerrar"
+            },
+            "dynamic_component": {
+                "spot": "top_shipping",
+                "order": 1
+            }
+        },
+        "second_shipping_summary": {
+            "id": "second_shipping_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "upselling_meliplus_summary": {
+            "id": "upselling_meliplus_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "generic_banner_shipping": {
+            "id": "generic_banner_shipping",
+            "type": "generic_banner",
+            "state": "HIDDEN"
+        },
+        "generic_banner_price": {
+            "id": "generic_banner_price",
+            "type": "generic_banner",
+            "state": "HIDDEN"
+        },
+        "generic_banner_installments": {
+            "id": "generic_banner_installments",
+            "type": "generic_banner",
+            "state": "HIDDEN"
+        },
+        "pick_up_summary": {
+            "id": "pick_up_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN",
+            "benefit_type": "NONE"
+        },
+        "cbt_taxes_summary": {
+            "id": "cbt_taxes_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "returns_summary": {
+            "id": "returns_summary",
+            "type": "generic_summary",
+            "state": "HIDDEN"
+        },
+        "seller": {
+            "id": "seller",
+            "type": "seller",
+            "state": "HIDDEN",
+            "show_seller_logo": false,
+            "url": "https://www.mercadolibre.com.ar/repelente-escudo-mosquitos-dengue-aroma-suave-no-mancha/p/MLA29586995/seller-info"
+        },
+        "stock_information": {
+            "id": "stock_information",
+            "type": "warning_message",
+            "state": "VISIBLE",
+            "title": {
+                "text": "Stock disponible",
+                "color": "BLACK",
+                "font_size": "SMALL",
+                "font_family": "SEMIBOLD"
+            }
+        },
+        "available_quantity": {
+            "id": "available_quantity",
+            "type": "available_quantity",
+            "state": "VISIBLE",
+            "picker": {
+                "title": "Cantidad:",
+                "selected": 5,
+                "selected_label": {
+                    "text": "5 unidades",
+                    "color": "BLACK",
+                    "font_family": "REGULAR"
+                },
+                "description": "(+50 disponibles)",
+                "messages": [
+                    {
+                        "text": "Envío gratis comprando 4 o más unidades",
+                        "color": "GREEN",
+                        "font_size": "XSMALL",
+                        "font_family": "REGULAR"
+                    }
+                ],
+                "track": {
+                    "melidata_event": {
+                        "path": "/pdp/quantity_picker_open",
+                        "event_data": {
+                            "catalog_product_id": "MLA29586995",
+                            "item_id": "MLA1882639592",
+                            "seller_id": 346228124,
+                            "seller_name": "INSITU LOGISTICA",
+                            "quantity": 51,
+                            "user_product_id": "N/A",
+                            "page_type": "PDP"
+                        }
+                    }
+                }
+            },
+            "quantity_selector": {
+                "type": "drop_down_list",
+                "available_quantity": 6,
+                "minimum_quantity": 1,
+                "selector": {
+                    "title": {
+                        "text": "Elegí cantidad",
+                        "color": "BLACK"
+                    },
+                    "subtitles": [
+                        {
+                            "text": "Envío gratis comprando 4 o más unidades",
+                            "color": "GREEN",
+                            "font_size": "XSMALL",
+                            "font_family": "REGULAR"
+                        }
+                    ],
+                    "template": {
+                        "singular": "{quantity} unidad",
+                        "plural": "{quantity} unidades"
+                    },
+                    "rows": 6
+                },
+                "input": {
+                    "title": {
+                        "text": "Elegí cantidad",
+                        "color": "BLACK"
+                    },
+                    "subtitles": [
+                        {
+                            "text": "+50 disponibles"
+                        }
+                    ],
+                    "placeholder": "Ingresar cantidad",
+                    "confirm_button": {
+                        "timeout": 0,
+                        "duration": 0,
+                        "label": {
+                            "text": "Aplicar"
+                        }
+                    },
+                    "error_message": {
+                        "text": "Sin stock",
+                        "color": "RED"
+                    },
+                    "min_error_message": {
+                        "text": "Podés comprar desde 1 unidades",
+                        "color": "RED"
+                    }
+                },
+                "track": {
+                    "melidata_event": {
+                        "path": "/pdp/quantity_change",
+                        "event_data": {
+                            "catalog_product_id": "MLA29586995",
+                            "item_id": "MLA1882639592",
+                            "seller_id": 346228124,
+                            "seller_name": "INSITU LOGISTICA",
+                            "quantity": 1,
+                            "user_product_id": "N/A",
+                            "page_type": "PDP"
+                        }
+                    }
+                }
+            }
+        },
+        "moq_information": {
+            "id": "moq_information",
+            "type": "warning_message",
+            "state": "HIDDEN"
+        },
+        "main_actions": {
+            "id": "main_actions",
+            "type": "main_actions",
+            "state": "VISIBLE",
+            "form": {
+                "mode": "page",
+                "item_id": "MLA1882639592",
+                "context": "pdp",
+                "shipping_option_id": "3811130820"
+            },
+            "actions": [
+                {
+                    "type": "primary",
+                    "target": "https://www.mercadolibre.com.ar/gz/checkout/buy",
+                    "style_blocked": false,
+                    "timeout": 0,
+                    "duration": 0,
+                    "label": {
+                        "text": "Comprar ahora"
+                    },
+                    "track": {
+                        "melidata_event": {
+                            "path": "/pdp/buy_action",
+                            "event_data": {
+                                "catalog_product_id": "MLA29586995",
+                                "item_id": "MLA1882639592",
+                                "vertical": "core",
+                                "domain_id": "MLA-SKIN_REPELLENTS",
+                                "review_rate": 4,
+                                "item_condition": "new",
+                                "listing_type_id": "gold_special",
+                                "cart_content": true,
+                                "price": 9000,
+                                "currency_id": "ARS",
+                                "available_promotions": [],
+                                "seller_id": 346228124,
+                                "seller_name": "INSITU LOGISTICA",
+                                "reputation_level": "5_green",
+                                "power_seller_status": "platinum",
+                                "installment_info": "6",
+                                "free_shipping": false,
+                                "shipping_mode": "me2",
+                                "local_pick_up": false,
+                                "store_pick_up": false,
+                                "logistic_type": "self_service",
+                                "is_cbt_fulfillment_us": false,
+                                "shipping_conditions": "free_loyal",
+                                "pushing_puis": false,
+                                "showing_puis": false,
+                                "bo_pick_up_conditions": "no_bo_pick_up",
+                                "pdp_type": "GREEN_WITH_OFFER",
+                                "credits_opensea": false,
+                                "user_product_id": "N/A",
+                                "page_type": "PDP"
+                            }
+                        },
+                        "analytics_event": {
+                            "section": "/PDP/",
+                            "action": "BUY-INTENTION",
+                            "category": "PDP",
+                            "label": "MAIN_ACTION"
+                        }
+                    },
+                    "disabled": false,
+                    "should_raise_errors": false,
+                    "action_type": "BUY_NOW",
+                    "presentation_type": "push",
+                    "submit_target": "https://www.mercadolibre.com.ar/gz/checkout/buy"
+                },
+                {
+                    "type": "secondary",
+                    "target": "https://www.mercadolibre.com.ar/gz/cart/item/add",
+                    "style_blocked": false,
+                    "timeout": 0,
+                    "duration": 0,
+                    "label": {
+                        "text": "Agregar al carrito"
+                    },
+                    "track": {
+                        "melidata_event": {
+                            "path": "/pdp/add_to_cart_action",
+                            "event_data": {
+                                "catalog_product_id": "MLA29586995",
+                                "item_id": "MLA1882639592",
+                                "vertical": "core",
+                                "domain_id": "MLA-SKIN_REPELLENTS",
+                                "review_rate": 4,
+                                "item_condition": "new",
+                                "listing_type_id": "gold_special",
+                                "cart_content": true,
+                                "price": 9000,
+                                "currency_id": "ARS",
+                                "available_promotions": [],
+                                "seller_id": 346228124,
+                                "seller_name": "INSITU LOGISTICA",
+                                "reputation_level": "5_green",
+                                "power_seller_status": "platinum",
+                                "installment_info": "6",
+                                "free_shipping": false,
+                                "shipping_mode": "me2",
+                                "local_pick_up": false,
+                                "store_pick_up": false,
+                                "logistic_type": "self_service",
+                                "is_cbt_fulfillment_us": false,
+                                "shipping_conditions": "free_loyal",
+                                "pushing_puis": false,
+                                "showing_puis": false,
+                                "bo_pick_up_conditions": "no_bo_pick_up",
+                                "pdp_type": "GREEN_WITH_OFFER",
+                                "flow_type": "general_merchandising",
+                                "offering_visualization_id": "2024-09-23T14:29:52.130Z_35701b81-68be-4479-a70c-1aeb927a",
+                                "credits_opensea": false,
+                                "user_product_id": "N/A",
+                                "page_type": "PDP"
+                            }
+                        },
+                        "analytics_event": {
+                            "section": "/PDP/",
+                            "action": "ADD-TO-CART",
+                            "category": "PDP",
+                            "label": "MAIN_ACTION"
+                        }
+                    },
+                    "disabled": false,
+                    "should_raise_errors": false,
+                    "action_type": "ADD_TO_CART",
+                    "presentation_type": "push",
+                    "submit_target": "https://www.mercadolibre.com.ar/p/MLA1882639592/add-to-cart"
+                }
+            ]
+        },
+        "shipping_cart_benefits_tooltip": {
+            "id": "shipping_cart_benefits_tooltip",
+            "type": "tooltip",
+            "state": "HIDDEN",
+            "closeable": false,
+            "closed": false,
+            "storable": false,
+            "has_shadow": false,
+            "change_color": false
+        },
+        "credits_tooltip": {
+            "id": "credits_tooltip",
+            "type": "tooltip",
+            "state": "HIDDEN",
+            "closeable": false,
+            "closed": false,
+            "storable": false,
+            "has_shadow": false,
+            "change_color": false
+        },
+        "seller_experiment": {
+            "id": "seller_experiment",
+            "type": "seller_experiment",
+            "state": "VISIBLE",
+            "title": "Vendido por",
+            "title_value": "INSITU LOGISTICA",
+            "seller_link": {
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "INSITU LOGISTICA",
+                    "color": "BLUE"
+                },
+                "close_modal_label": "Cerrar"
+            },
+            "subtitles": [
+                {
+                    "text": "MercadoLíder {font} {bold_amount}",
+                    "color": "BLACK",
+                    "font_size": "XSMALL",
+                    "font_family": "REGULAR",
+                    "values": {
+                        "bold_amount": {
+                            "text": "+10mil ventas",
+                            "color": "BLACK",
+                            "font_size": "XSMALL",
+                            "font_family": "BOLD"
+                        },
+                        "font": {
+                            "text": "|",
+                            "color": "GRAY",
+                            "font_size": "XSMALL",
+                            "font_family": "REGULAR"
+                        }
+                    }
+                },
+                {
+                    "text": "Hace Factura A",
+                    "color": "GRAY",
+                    "font_size": "XXSMALL"
+                }
+            ],
+            "seller": {
+                "id": 346228124,
+                "name": "INSITU LOGISTICA",
+                "reputation_level": "5_green"
+            },
+            "seller_info": {
+                "state": "VISIBLE",
+                "header": "Información del vendedor",
+                "title": "INSITU LOGISTICA",
+                "subtitles": [],
+                "power_seller_status": {
+                    "title": "MercadoLíder Platinum",
+                    "subtitle": "¡Es uno de los mejores del sitio!"
+                },
+                "store_type": "CLASSIC",
+                "thermometer": {
+                    "rank": 5,
+                    "info": [
+                        {
+                            "title": "+10mil",
+                            "subtitle": "Ventas concretadas"
+                        },
+                        {
+                            "icon": {
+                                "id": "REP_SELLER_ATTENTION_GOOD"
+                            },
+                            "subtitle": "Brinda buena atención"
+                        },
+                        {
+                            "icon": {
+                                "id": "REP_SELLER_DELIVERY_TIME_GOOD"
+                            },
+                            "subtitle": "Despacha sus productos a tiempo"
+                        }
+                    ]
+                },
+                "extra_info": [
+                    {
+                        "title": "Facturación",
+                        "subtitle": "Este vendedor hace Factura A",
+                        "heading_label": {
+                            "text": "Facturación",
+                            "is_heading": true
+                        }
+                    }
+                ],
+                "is_exclusive_official_store": false
+            },
+            "show_seller_logo": true,
+            "is_exclusive_official_store": false
+        },
+        "buy_benefits": {
+            "id": "buy_benefits",
+            "type": "buy_benefits",
+            "state": "HIDDEN",
+            "is_new_benefits": false,
+            "benefits": []
+        },
+        "carousel_above_seller": {
+            "id": "carousel_above_seller",
+            "type": "carousel_above",
+            "state": "VISIBLE",
+            "carousel": {
+                "heading_label": {
+                    "is_heading": true
+                }
+            },
+            "carousel_config": {
+                "site_id": "MLA",
+                "item_id": "MLA1882639592",
+                "product_id": "MLA29586995",
+                "category_id": "MLA393890",
+                "web_device": "desktop",
+                "client": "pdp-seller_items-above",
+                "d2id": "5d3e3cfb-eb4a-4219-88e8-c8df896bb25f",
+                "picture_id": "",
+                "min_recomms": 3,
+                "limit": 20,
+                "state_id": "AR-C",
+                "zone_models": "A1%3A2%2CA2%3A2%2CX2%3A2%2CX3%3A2%2CX4%3A2%2CX5%3A2%2CCABA",
+                "bbw_ads": "false",
+                "include_only_flex": "false",
+                "zip_code": "1406"
+            },
+            "background_color": "LIGHT_GRAY",
+            "is_carousel_polycard": false,
+            "has_native_card_shadow_background": false,
+            "has_bottom_spacing": false
+        },
+        "questions": {
+            "id": "questions",
+            "type": "questions",
+            "state": "HIDDEN",
+            "url": "https://www.mercadolibre.com.ar/repelente-escudo-mosquitos-dengue-aroma-suave-no-mancha/p/MLA29586995/questions"
+        },
+        "bbw_alternatives": {
+            "id": "bbw_alternatives",
+            "type": "bbw_alternatives",
+            "state": "VISIBLE",
+            "title": {
+                "text": "Otras opciones de compra",
+                "color": "BLACK"
+            },
+            "action": {
+                "target": "https://www.mercadolibre.com.ar/repelente-escudo-mosquitos-dengue-aroma-suave-no-mancha/p/MLA29586995/s",
+                "timeout": 0,
+                "duration": 0,
+                "label": {
+                    "text": "Ver 11 opciones desde {price}",
+                    "color": "BLUE",
+                    "values": {
+                        "price": {
+                            "type": "price",
+                            "value": 5699.05,
+                            "currency_symbol": "$"
+                        }
+                    }
+                },
+                "track": {
+                    "melidata_event": {
+                        "path": "/pdp/other_buying_options",
+                        "event_data": {
+                            "catalog_product_id": "MLA29586995",
+                            "item_id": "MLA1882639592",
+                            "item_condition": "new",
+                            "listing_type_id": "gold_special",
+                            "domain_id": "MLA-SKIN_REPELLENTS",
+                            "product_status": "active",
+                            "seller_id": 346228124,
+                            "seller_name": "INSITU LOGISTICA",
+                            "context": "alternatives"
+                        }
+                    },
+                    "analytics_event": {
+                        "section": "/PDP/",
+                        "action": "OTHER_BUYING_OPTIONS",
+                        "category": "PDP",
+                        "label": "alternatives"
+                    }
+                }
+            },
+            "items": [],
+            "heading_label": {
+                "text": "Otras opciones de compra",
+                "color": "BLACK",
+                "is_heading": true
+            }
+        }
+    },
+    "schema": [],
+    "recommendations_context": {},
+    "selected_offer_type": null,
+    "icons": [
+        "arrow",
+        "bookmark",
+        "check_circle",
+        "chevron",
+        "help",
+        "play",
+        "close",
+        "search",
+        "sharegallery",
+        "response",
+        "price_info",
+        "verified_small",
+        "meli_coins",
+        "meli_usd",
+        "file",
+        "truck",
+        "fast_truck",
+        "schedulable_truck",
+        "seller_agreement",
+        "pick_up",
+        "cbt",
+        "poly_full",
+        "full_icon",
+        "location",
+        "facing",
+        "warning",
+        "unit_floor",
+        "office",
+        "meliplus_icon",
+        "tooltip",
+        "rounded_truck_medium",
+        "calendar",
+        "question_ai",
+        "flag",
+        "cbt_summary",
+        "icon_package",
+        "location_rounded",
+        "protected_buy_rounded",
+        "coupon",
+        "rounded_truck_medium_alt",
+        "loyalty_trophy_rounded",
+        "loyalty_plus_rounded",
+        "cart",
+        "express",
+        "warranty",
+        "returns",
+        "protected_buy",
+        "loyalty_points",
+        "meliplus_loyalty_points",
+        "card",
+        "recommendations-cpg_card",
+        "recommendations-supermarket_fs_icon",
+        "poly_compats",
+        "poly_star",
+        "poly_star_fill",
+        "poly_star_half",
+        "melichoice_logo",
+        "buflo_icon_info",
+        "icon_meli",
+        "poly_size_chart",
+        "share",
+        "mail",
+        "twitter",
+        "facebook",
+        "rep_seller_attention_good",
+        "rep_seller_delivery_time_good"
+    ],
+    "pathName": "/p/api/products",
+    "parentUrl": "https://www.mercadolibre.com.ar/p/api/products?quantity=5"
+}
