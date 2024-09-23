@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 
 // Configuración MongoDB
-const mongoURI = process.env.MONGO_URI; // URI de MongoDB desde el archivo .env
+const mongoURI = process.env.MONGODB_URI; // URI de MongoDB desde el archivo .env
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
