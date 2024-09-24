@@ -22,13 +22,13 @@ const notificationSchema = new mongoose.Schema({
 
 const Notification = mongoose.model('Notification', notificationSchema);
 
+let accessToken = await refreshAccessToken();
+
 // Ruta para recibir notificaciones
 app.post('/webhook', async (req, res) => {
     
   try {
   
-    let accessToken = await refreshAccessToken();
-
     const notification = req.body;
 
     console.log('Notificación recibida:', notification);
