@@ -24,10 +24,11 @@ const Notification = mongoose.model('Notification', notificationSchema);
 
 // Ruta para recibir notificaciones
 app.post('/webhook', async (req, res) => {
-  
-  let accessToken = refreshAccessToken();
-  
+    
   try {
+  
+    let accessToken = await refreshAccessToken();
+
     const notification = req.body;
 
     console.log('Notificación recibida:', notification);
@@ -118,7 +119,7 @@ async function refreshAccessToken() {
     return access_token;
 
   } catch (error) {
-    this.logger.log('Failed to refresh token: ' + error.message);
+    console.log('Failed to refresh token: ' + error.message);
     throw error;
   }
 }
