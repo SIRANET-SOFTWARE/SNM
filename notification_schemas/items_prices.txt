@@ -1,0 +1,19 @@
+items_prices
+{
+  _id: new ObjectId('66f1d6ab76a6ff3c840325c0'),
+  notification: {
+    _id: 'deb8b77a-14a0-4a52-8854-02f8ea18b106',
+    topic: 'items_prices',
+    resource: '/items/MLA924482904/prices',
+    user_id: 282227241,
+    application_id: 3430632007865823,
+    sent: '2024-09-23T20:59:23.698Z',
+    attempts: 1,
+    received: '2024-09-23T20:59:23.56Z',
+    actions: []
+  },
+  apiResponse: { id: 'MLA924482904', prices: [ [Object] ] },
+  createdAt: 2024-09-23T20:59:23.924Z,
+  updatedAt: 2024-09-23T20:59:23.924Z,
+  __v: 0
+}

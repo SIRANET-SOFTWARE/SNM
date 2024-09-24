@@ -1,0 +1,7 @@
+{
+    topic: 'questions',
+    sent: '2024-09-23T21:15:17.93Z',
+    received: '2024-09-23T21:15:17.807Z',
+    text: '¿Sirve para una Raspberry Pi 3b+?',
+    item_id: 'MLA1338676837',
+}

@@ -1,0 +1,32 @@
+{
+  _id: new ObjectId('66f1dd5276a6ff3c840325fc'),
+  notification: {
+    _id: '72207bf8-fcf5-4d3f-98ee-8a5c909c1bab',
+    topic: 'fbm_stock_operations',
+    resource: '/stock/fulfillment/operations/100000215699649',
+    user_id: 282227241,
+    application_id: 3430632007865823,
+    sent: '2024-09-23T21:27:46.673Z',
+    attempts: 1,
+    received: '2024-09-23T21:27:46.568Z',
+    actions: []
+  },
+  apiResponse: {
+    id: 100000215699649,
+    seller_id: 282227241,
+    date_created: '2024-09-23T21:25:29Z',
+    type: 'SALE_CONFIRMATION',
+    detail: { available_quantity: -1, not_available_detail: [] },
+    result: {
+      total: 83,
+      available_quantity: 80,
+      not_available_quantity: 3,
+      not_available_detail: [Array]
+    },
+    external_references: [ [Object] ],
+    inventory_id: 'LMTV97439'
+  },
+  createdAt: 2024-09-23T21:27:46.903Z,
+  updatedAt: 2024-09-23T21:27:46.903Z,
+  __v: 0
+}

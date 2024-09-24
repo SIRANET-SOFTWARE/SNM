@@ -1,0 +1,31 @@
+{
+  _id: new ObjectId('66f1f2a8a6540c44922a5321'),
+  notification: {
+    _id: 'ec7db6d0-8fb7-4640-b5e0-efb470eeda30',
+    topic: 'catalog_item_competition_status',
+    resource: '/items/MLA1316673567/price_to_win',
+    user_id: 282227241,
+    application_id: 3430632007865823,
+    sent: '2024-09-23T22:58:48.603Z',
+    attempts: 1,
+    received: '2024-09-23T22:58:48.546Z',
+    actions: []
+  },
+  apiResponse: {
+    item_id: 'MLA1316673567',
+    current_price: null,
+    currency_id: null,
+    price_to_win: null,
+    boosts: null,
+    status: 'not_listed',
+    consistent: false,
+    reason: [ 'item_not_opted_in' ],
+    catalog_product_id: null,
+    visit_share: null,
+    competitors_sharing_first_place: null,
+    winner: null
+  },
+  createdAt: 2024-09-23T22:58:48.872Z,
+  updatedAt: 2024-09-23T22:58:48.872Z,
+  __v: 0
+}

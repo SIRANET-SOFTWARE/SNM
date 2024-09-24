@@ -1,0 +1,73 @@
+{
+  _id: new ObjectId('66f1d81476a6ff3c840325c4'),
+  notification: {
+    _id: '4c34c8ec-1c61-4d2c-b54e-8173a2056928',
+    topic: 'orders_v2',
+    sent: '2024-09-23T21:05:24.486Z',
+    received: '2024-09-23T21:05:24.215Z',
+    actions: [ 'fulfilled' ]
+  }
+  apiResponse:{
+    id: 2000009364954036,
+    date_created: '2024-09-22T19:26:50.000-04:00',
+    last_updated: '2024-09-23T17:05:23.000-04:00',
+    expiration_date: '2024-10-20T19:26:53.000-04:00',
+    date_closed: '2024-09-22T19:26:53.000-04:00',
+    comment: null,
+    pack_id: 2000006354631205,
+    purchase_id: null,
+    pickup_id: null,
+    fulfilled: true,
+    hidden_for_seller: null,
+    buying_mode: 'buy_equals_pay',
+    shipping_cost: null,
+    application_id: null,
+    mediations: [],
+    total_amount: 20615,
+    paid_amount: 20615,
+    coupon: { amount: 0, id: null },
+    order_items: [ [Object] ],
+    currency_id: 'ARS',
+    payments: [ [Object] ],
+    shipping: { id: 43871261818 },
+    status: 'paid',
+    status_detail: null,
+    tags: [ 'pack_order', 'catalog', 'paid', 'delivered' ],
+    internal_tags: [],
+    feedback: { seller: null, buyer: null },
+    context: {
+      channel: 'marketplace',
+      site: 'MLA',
+      flows: [Array],
+      application: null,
+      product_id: null,
+      store_id: null
+    },
+    seller: {
+      id: 282227241,
+      user_type: null,
+      tags: [],
+      internal_tags: [],
+      status: null,
+      buy_restrictions: []
+    },
+    buyer: {
+      id: 66333067,
+      nickname: 'MARCE19722004',
+      first_name: 'marcelo',
+      last_name: 'eduardo',
+      user_type: null,
+      tags: [],
+      internal_tags: [],
+      status: null,
+      buy_restrictions: []
+    },
+    taxes: { amount: null, currency_id: null, id: null },
+    cancel_detail: null,
+    manufacturing_ending_date: null,
+    order_request: { change: null, return: null }
+  },
+  createdAt: 2024-09-23T21:05:24.704Z,
+  updatedAt: 2024-09-23T21:05:24.704Z,
+  __v: 0
+}

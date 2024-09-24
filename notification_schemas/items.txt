@@ -1,0 +1,11 @@
+{
+  _id: new ObjectId('66f1d6aa76a6ff3c840325be'),
+    topic: 'items',
+    sent: '2024-09-23T20:59:22.388Z',
+    received: '2024-09-23T20:59:22.211Z',
+    id: 'MLA924482904',
+    title: 'Fuente Cargador 5v 3a Usb-c Compatible Raspberry Pi 4',
+    attribute_changes: [],
+    old_values: [],
+    new_values: []
+}

@@ -1,0 +1,8 @@
+{
+    "notification": {
+        "fields": ["topic", "sent"]
+    },
+    "apiResponse": {
+        "fields": ["a", "b"]
+    }
+}
