@@ -1,0 +1,3 @@
+[2024-09-26T17:17:28.457Z] [ConfigManager] Creating ConfigManager instance
+[2024-09-26T17:17:28.464Z] [ConfigManager] Config path: ./config.yaml
+[2024-09-26T17:17:28.465Z] [ConfigManager] Loaded config from ./config.yaml

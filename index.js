@@ -4,8 +4,15 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const ConfigManager = require('./configManager');
+const AuthManager = require('./authManager');
 
 const app = express();
+// instantiate config manager
+const configManager = new ConfigManager('./config.yaml');
+// instantiate auth manager
+const authManager = new AuthManager(configManager);
+
 app.use(express.json());
 
 // Configuración MongoDB
@@ -28,7 +35,7 @@ let accessToken = '';
 app.post('/webhook', async (req, res) => {
     
   try {
-      
+
     const notification = req.body;
 
     console.log('Notificación recibida:', notification);
@@ -51,8 +58,9 @@ app.post('/webhook', async (req, res) => {
       console.error('Error obteniendo el recurso:', error.message);
       // Intentar refrescar el token y hacer el GET nuevamente
       try {
-      const newAccessToken = await refreshAccessToken();
-      const retryResponse = await axios.get(resourceUrl, {
+        const response = await authManager.refreshToken();
+        const newAccessToken = response.data.access_token;
+        const retryResponse = await axios.get(resourceUrl, {
         headers: {
         Authorization: `Bearer ${newAccessToken}`,
         },
@@ -124,20 +132,3 @@ async function refreshAccessToken() {
   }
 }
 
-
-  /*
-  const refreshToken = process.env.REFRESH_TOKEN; // Token de refresco de MercadoLibre
-  const clientId = process.env.CLIENT_ID; // ID de cliente de la aplicación
-  const clientSecret = process.env.CLIENT_SECRET; // Secreto de cliente de la aplicación
-
-  const tokenUrl = 'https://api.mercadolibre.com/oauth/token';
-
-  const response = await axios.post(tokenUrl, {
-    grant_type: 'refresh_token',
-    client_id: clientId,
-    client_secret: clientSecret,
-    refresh_token: refreshToken,
-  });
-
-  return response.data.access_token;
-  */
