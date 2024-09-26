@@ -58,11 +58,11 @@ app.post('/webhook', async (req, res) => {
       console.error('Error obteniendo el recurso:', error.message);
       // Intentar refrescar el token y hacer el GET nuevamente
       try {
-        const response = await authManager.refreshToken();
-        const newAccessToken = response.data.access_token;
+        await authManager.refreshToken();
+        const authConfig = await configManager.getAuthConfig();
         const retryResponse = await axios.get(resourceUrl, {
         headers: {
-        Authorization: `Bearer ${newAccessToken}`,
+        Authorization: `Bearer ${authConfig.ACCESS_TOKEN}`,
         },
       });
       apiResponse = retryResponse.data; // Si la solicitud fue exitosa, guardar la respuesta
