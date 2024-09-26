@@ -60,9 +60,10 @@ app.post('/webhook', async (req, res) => {
       try {
         await authManager.refreshToken();
         const authConfig = await configManager.getAuthConfig();
+        accessToken = authConfig.ACCESS_TOKEN;
         const retryResponse = await axios.get(resourceUrl, {
         headers: {
-        Authorization: `Bearer ${authConfig.ACCESS_TOKEN}`,
+        Authorization: `Bearer ${accessToken}`,
         },
       });
       apiResponse = retryResponse.data; // Si la solicitud fue exitosa, guardar la respuesta
