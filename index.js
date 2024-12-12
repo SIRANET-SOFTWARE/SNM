@@ -8,81 +8,96 @@ const ConfigManager = require('./configManager');
 const AuthManager = require('./authManager');
 
 const app = express();
-// instantiate config manager
+
+// Instanciar configuraciones y manejadores
 const configManager = new ConfigManager('./config.yaml');
-// instantiate auth manager
 const authManager = new AuthManager(configManager);
 
 app.use(express.json());
 
 // Configuración MongoDB
 const mongoURI = process.env.MONGODB_URI; // URI de MongoDB desde el archivo .env
-mongoose.connect(mongoURI)
-.then(() => console.log('Conectado a MongoDB Atlas'))
-.catch((error) => console.error('Error conectando a MongoDB:', error));
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('Conectado a MongoDB Atlas'))
+  .catch((error) => console.error('Error conectando a MongoDB:', error));
 
-// Esquema de la colección 'notificaciones'
-const notificationSchema = new mongoose.Schema({
+// Esquemas de MongoDB
+const mercadoLibreSchema = new mongoose.Schema({
   notification: Object,
   apiResponse: Object, // Puede ser un objeto vacío si falla el GET
 }, { timestamps: true });
 
-const Notification = mongoose.model('Notification', notificationSchema);
+const tiendaNubeSchema = new mongoose.Schema({
+  notification: Object,
+}, { timestamps: true });
 
-let accessToken = '';
+const MercadoLibreNotification = mongoose.model('MercadoLibreNotification', mercadoLibreSchema);
+const TiendaNubeNotification = mongoose.model('TiendaNubeNotification', tiendaNubeSchema);
+
+let accessToken = ''; // Token para MercadoLibre
 
 // Ruta para recibir notificaciones
 app.post('/webhook', async (req, res) => {
-    
   try {
-
     const notification = req.body;
 
-    console.log('Notificación recibida:', notification);
-    console.log('Recurso:', notification.resource);
-    
-    // Intentar realizar GET al recurso proporcionado en la notificación
-    const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
+    // Determinar el origen de la notificación
+    if (notification.topic && notification.resource) {
+      // **Notificación de MercadoLibre**
+      console.log('Notificación de MercadoLibre recibida:', notification);
 
-    let apiResponse = {};
+      // Procesar notificación de MercadoLibre
+      const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
+      let apiResponse = {};
 
-    try {
-      // Hacer el GET al recurso
-      const response = await axios.get(resourceUrl, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-      });
-      apiResponse = response.data; // Si la solicitud fue exitosa, guardar la respuesta
-    } catch (error) {
-      console.error('Error obteniendo el recurso:', error.message);
-      // Intentar refrescar el token y hacer el GET nuevamente
       try {
-        await authManager.refreshToken();
-        const authConfig = await configManager.getAuthConfig();
-        accessToken = authConfig.ACCESS_TOKEN;
-        const retryResponse = await axios.get(resourceUrl, {
-        headers: {
-        Authorization: `Bearer ${accessToken}`,
-        },
-      });
-      apiResponse = retryResponse.data; // Si la solicitud fue exitosa, guardar la respuesta
-      } catch (retryError) {
-      console.error('Error obteniendo el recurso después de refrescar el token:', retryError.message);
-      // Si falla nuevamente, apiResponse se queda como un objeto vacío
+        // Hacer el GET al recurso
+        const response = await axios.get(resourceUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+        apiResponse = response.data;
+      } catch (error) {
+        console.error('Error obteniendo el recurso de MercadoLibre:', error.message);
+
+        // Intentar refrescar el token
+        try {
+          await authManager.refreshToken();
+          const authConfig = await configManager.getAuthConfig();
+          accessToken = authConfig.ACCESS_TOKEN;
+
+          // Reintentar el GET
+          const retryResponse = await axios.get(resourceUrl, {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          });
+          apiResponse = retryResponse.data;
+        } catch (retryError) {
+          console.error('Error obteniendo el recurso después de refrescar el token:', retryError.message);
+        }
       }
+
+      // Guardar en MongoDB
+      const newNotification = new MercadoLibreNotification({ notification, apiResponse });
+      await newNotification.save();
+
+      return res.status(200).send('Notificación de MercadoLibre procesada');
+    } else if (notification.store_id && notification.event) {
+      // **Notificación de TiendaNube**
+      console.log('Notificación de TiendaNube recibida:', notification);
+
+      // Guardar en MongoDB
+      const newNotification = new TiendaNubeNotification({ notification });
+      await newNotification.save();
+
+      return res.status(200).send('Notificación de TiendaNube procesada');
+    } else {
+      // Notificación desconocida
+      console.warn('Notificación desconocida recibida:', notification);
+      return res.status(400).send('Formato de notificación desconocido');
     }
-
-    // Guardar la notificación y la respuesta (vacía si falló) en MongoDB
-    const newNotification = new Notification({
-      notification,
-      apiResponse, // Vacío si no hubo respuesta
-    });
-
-    await newNotification.save();
-
-    // Responder con 200 para confirmar la recepción de la notificación
-    res.status(200).send('Notificación recibida y procesada, aunque sin respuesta');
   } catch (error) {
     console.error('Error procesando la notificación:', error);
     res.status(500).send('Error procesando la notificación');
@@ -95,9 +110,8 @@ app.listen(PORT, () => {
   console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });
 
-// Función para refrescar el token de acceso
+// Función para refrescar el token de acceso (ya gestionada por AuthManager)
 async function refreshAccessToken() {
-
   const refreshTokenPath = path.join(__dirname, 'refreshToken.txt');
   const refreshToken = fs.readFileSync(refreshTokenPath, 'utf8').trim();
 
@@ -114,7 +128,7 @@ async function refreshAccessToken() {
   try {
     const response = await axios.post('https://api.mercadolibre.com/oauth/token', data, {
       headers: {
-        'accept': 'application/json',
+        accept: 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
       },
     });
@@ -123,13 +137,11 @@ async function refreshAccessToken() {
 
     const { access_token, refresh_token } = response.data;
 
-    // Update refresh token and return access token
+    // Actualizar token de refresco y devolver token de acceso
     fs.writeFileSync(refreshTokenPath, refresh_token);
     return access_token;
-
   } catch (error) {
-    console.log('Failed to refresh token: ' + error.message);
+    console.log('Fallo al refrescar el token:', error.message);
     throw error;
   }
 }
-
