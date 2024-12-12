@@ -38,13 +38,15 @@ let accessToken = ''; // Token para MercadoLibre
 
 // Ruta para recibir notificaciones
 app.post('/webhook', async (req, res) => {
+  // Print the body of any notification received
+  console.log('Notificación recibida:', req.body);  
   try {
     const notification = req.body;
 
     // Determinar el origen de la notificación
     if (notification.topic && notification.resource) {
       // **Notificación de MercadoLibre**
-      console.log('Notificación de MercadoLibre recibida:', notification);
+      // console.log('Notificación de MercadoLibre recibida:', notification);
 
       // Procesar notificación de MercadoLibre
       const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
@@ -86,7 +88,7 @@ app.post('/webhook', async (req, res) => {
       return res.status(200).send('Notificación de MercadoLibre procesada');
     } else if (notification.store_id && notification.event) {
       // **Notificación de TiendaNube**
-      console.log('Notificación de TiendaNube recibida:', notification);
+      // console.log('Notificación de TiendaNube recibida:', notification);
 
       // Guardar en MongoDB
       const newNotification = new TiendaNubeNotification({ notification });
