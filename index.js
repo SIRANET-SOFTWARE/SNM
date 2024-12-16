@@ -32,13 +32,6 @@ async function storeAccessToken(token) {
   console.log('Token actualizado en MongoDB:', token);
 }
 
-// Helper para obtener el token actual desde MongoDB
-async function getAccessToken() {
-  const tokenDoc = await Token.findOne();
-  if (!tokenDoc) throw new Error('Token no encontrado en la base de datos.');
-  return tokenDoc.accessToken;
-}
-
 // Ruta para recibir notificaciones
 app.post('/webhook', async (req, res) => {
   console.log('Notificación recibida:', req.body);
@@ -49,10 +42,9 @@ app.post('/webhook', async (req, res) => {
       // **Notificación de MercadoLibre**
       const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
       let apiResponse = {};
-      let accessToken = await getAccessToken(); // Obtener el token desde MongoDB
 
       try {
-        // Hacer el GET al recurso
+        // Hacer el GET al recurso con el token actual
         const response = await axios.get(resourceUrl, {
           headers: { Authorization: `Bearer ${accessToken}` },
         });
@@ -66,7 +58,7 @@ app.post('/webhook', async (req, res) => {
           const authConfig = await configManager.getAuthConfig();
           accessToken = authConfig.ACCESS_TOKEN;
 
-          // Actualizar el token en MongoDB
+          // Guardar el nuevo token en MongoDB
           await storeAccessToken(accessToken);
 
           // Reintentar el GET
