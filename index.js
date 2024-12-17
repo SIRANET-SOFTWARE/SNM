@@ -55,6 +55,8 @@ app.post('/webhook', async (req, res) => {
     if (notification.topic && notification.resource) {
       // **Notificación de MercadoLibre**
       // console.log('Notificación de MercadoLibre recibida:', notification);
+      console.log("Notification received from MercadoLibre");
+      console.log(`Current access token: ${accessToken}`);
 
       // Procesar notificación de MercadoLibre
       const resourceUrl = `https://api.mercadolibre.com${notification.resource}`;
